@@ -16,8 +16,9 @@ const SearchExercises = ({setExercises,bodyPart,setBodyPart}) => {
   const handleSearch = async() =>{
     if(search){
     const exerciseData = await fetchData('https://exercisedb.p.rapidapi.com/exercises',exerciseOptions)
+    console.log(exerciseData)
     const searchedExercises = exerciseData.filter((exercise)=>
-      exercise.name.toLowerCase.includes(search) || exercise.target.toLowerCase.includes(search)||exercise.equipment.toLowerCase.includes(search) || exercise.bodyPart.toLowerCase.includes(search));
+      exercise.name.toLowerCase().includes(search) || exercise.target.toLowerCase().includes(search)||exercise.equipment.toLowerCase().includes(search) || exercise.bodyPart.toLowerCase().includes(search));
       setSearch('');
       setExercises(searchedExercises);
   }
@@ -28,11 +29,7 @@ const SearchExercises = ({setExercises,bodyPart,setBodyPart}) => {
         fontSize: {lg: "44px" , xs: "30px",}
       }} mb="50px" textAlign="center">Awesome Exercises You <br/> Should Know</Typography>
           <Box position="relative" mb="72px">
-            <TextField  sx={{input: {
-              fontWeight: "700px",
-              border: "none",
-              borderRadius:"4px"
-            },
+            <TextField  sx={{input: {fontWeight: "700px",border: "none",borderRadius:"4px"},
             width : {lg: "800px", xs:"350px"},
             backgroundColor: "#fff",
             borderRadius: "40px"}} height="75px"
