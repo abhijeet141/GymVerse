@@ -13,6 +13,7 @@ const SearchExercises = ({setExercises,bodyPart,setBodyPart}) => {
     }
     fetchExercisesData();
   },[])
+  //as we have to fetch some data from this
   const handleSearch = async() =>{
     if(search){
     const exerciseData = await fetchData('https://exercisedb.p.rapidapi.com/exercises',exerciseOptions)
